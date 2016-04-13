@@ -1,20 +1,24 @@
-Apigee EdgeMicro on the Apcera Platform
+<H1> Apigee Edge Micro on the Apcera Platform </H1>
 
 Theres two directories in this repository:
 
-Apigee: Has the package definition and the Apigee EdgeMicro software version 1.1
-edgemicro_app: Has the Apcera application Manifest to execute Apigee EdgeMicro out of the package
+<B> Apigee: </B> Has the package definition and the Apigee EdgeMicro software version 1.1.2 <br>
+<B> edgemicro_app: </B> Has the Apcera application Manifest to execute Apigee EdgeMicro out of the package
 
 Instructions
 
 Connect to the Apcera Cluster from inside the Apigee directory and execute:
 
-> apc package create edgemicro.conf
+<code> apc package create edgemicro.conf </code>
 
-once the package has been created, switch to the edgemicro_app and execute:
+Once the package has been created, switch to the edgemicro_app directory and modify the bash_start.sh file, adjust the configuration step on line 31 with your own user and password for Apigee Edge Gateway, make sure to adjust your Apigee Organization as well.
 
-> apc app create
+You will also need to update the continuum.conf file with the correct name of the NFS provider of your Apcera Cluster
 
-At this moment, in order for EdgeMicro to run, the edgemicro-auth proxy in Apigee Edge has to be deleted in order for the configuration to work.
+Once this changes have been saved, create the Application in the Apcera Platform
+
+<code> apc app create </code>
+
+
 
 
